@@ -158,7 +158,11 @@ define(function (require, exports) {
         if (lostFocus) {
             if (lostFocus.hasSelection) {
                 var selection = lostFocus.getSelection();
-                lostFocus.setCursorPos(selection.end.line, selection.end.ch, true);
+
+                // 2018-08-09
+                // disable this line to prevent jump to the top of the file when refocused
+                // lostFocus.setCursorPos(selection.end.line, selection.end.ch, true);
+
             }
             detachListeners(lostFocus._codeMirror);
         }
